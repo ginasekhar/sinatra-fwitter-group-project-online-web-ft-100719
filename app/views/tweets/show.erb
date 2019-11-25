@@ -1,0 +1,8 @@
+<h2>The Fweet you requested:</h2>
+<h4>User: <%= @tweet.user.username %></h4>
+<h4>Content: <%= @tweet.content %></h4>
+
+<form method="POST" action="/tweets/<%= @tweet.id %>/delete">
+    <input type="hidden" id="hidden" name="_method" value="DELETE">
+    <input type="submit" value="Delete">
+</form>
