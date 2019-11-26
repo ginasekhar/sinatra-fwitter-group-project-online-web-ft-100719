@@ -53,7 +53,7 @@ class TweetsController < ApplicationController
                 erb :'/tweets/edit'
             else
                 # Can't update a tweet that is not yours
-                redirect to '/tweets/#{@tweet.id}'
+                redirect to "/tweets/#{@tweet.id}"
             end
         else
             redirect to  '/login'
@@ -62,7 +62,6 @@ class TweetsController < ApplicationController
 
     patch '/tweets/:id' do 
         if logged_in? 
-            
             @tweet = Tweet.find_by_id(params[:id])
             if @tweet && @tweet.user == current_user && params[:content] != "" 
                 @tweet.update(content: params[:content])
